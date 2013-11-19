@@ -1,0 +1,44 @@
+<%- include ../header %>
+<section class="pg-doc page-panel">
+  <h2>Doc Post</h2>
+  <% if(locals.error){ %>
+  <div class="alert alert-error">
+      <a class="close" data-dismiss="alert" href="#">&times;</a>
+      <strong><%= error %></strong>
+  </div>
+  <% } %>
+  <form class="" method="post">
+    <div class="control-group">
+      <label class="control-label" for="title">Title</label>
+      <div class="controls">
+        <input type="text" id="title" class="input-title" name="title" placeholder="title">
+        <a id="topbt" class="btn">Top</a>
+        <input type="hidden" id="input-top" name="top" value="false"/>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="content">Content</label>
+      <div class="controls">
+        <textarea name="content"></textarea>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <button type="submit" class="btn btn-success">Submit</button>
+      </div>
+    </div>
+  </form>
+</section>
+<%- include ../footer %>
+<script>
+  $("#topbt").click(function(){
+    var b = $(this).hasClass("btn-success");
+    if(!b){
+      $(this).addClass("btn-success");
+      $("#input-top").val(true);
+    }else{
+      $(this).removeClass("btn-success");
+      $("#input-top").val(false);
+    }
+  })
+</script>

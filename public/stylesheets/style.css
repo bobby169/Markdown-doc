@@ -1,0 +1,239 @@
+body {
+    background: #f5f5f5;
+    min-height: 500px;
+}
+
+body, input, select, textarea, button {
+    font: 14px "微软雅黑", Helvetica, arial, freesans, clean, sans-serif;
+    line-height: 1.4;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 1.5;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.container {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.header {
+    text-shadow: 0 1px 0 #FFF;
+    border-bottom: 1px solid #E5E5E5;
+    min-width: 1000px;
+    padding: 15px 0;
+    background: #fff;
+}
+
+.logo {
+    float: left;
+    display: block;
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+    font-family: Georgia, Times New Roman, Times, serif;
+
+}
+
+.logo:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.header-actions {
+    float: right;
+}
+
+.header-actions .button {
+    margin-left: 5px;
+}
+
+.top-nav {
+    float: left;
+    list-style: none;
+    width: 120px;
+    z-index: 99;
+    transition: opacity 0.2s linear;
+    -webkit-transition: opacity 0.2s linear 0;
+    opacity: 1;
+    z-index: 1;
+    margin-top: 0px;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+
+.top-nav > li {
+    float: left;
+}
+
+.top-nav > li > a {
+    display: block;
+    padding: 5px;
+    font-size: 14px;
+    color: #333;
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in 0;
+}
+
+.header nav {
+    float: right;
+    position: relative;
+}
+
+.header form {
+    transition: width 0.2s ease-in-out;
+    -webkit-transition: width 0.2s ease-in-out 0;
+    margin-bottom: 0;
+    float: left;
+    margin-left: 30px;
+}
+
+.header nav form input {
+    margin-bottom: 0;
+}
+
+.page-panel {
+    background: #FFF;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: block;
+    padding: 20px;
+
+}
+
+#pg-index {
+    width: 760px;
+    margin: 20px auto;
+}
+
+#pg-index ul {
+    margin: 0;
+    padding: 0;
+}
+
+#pg-index .list li {
+    list-style: none;
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+}
+
+#pg-index .list .user-avatar {
+    float: left;
+    text-align: center;
+    font-size: 14px;
+    color: #B3B3B3;
+    line-height: 48px;
+}
+
+#pg-index .list .title {
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 48px;
+    width: 500px;
+    margin-left: 20px;
+}
+
+#pg-index .list .date {
+    float: right;
+    color: #B8ADAD;
+    font-size: 13px;
+    line-height: 53px;
+    padding: 0 8px;
+}
+
+#pg-index .user-avatar img, #pg-index .user-big_avatar img {
+    border-radius: 20px;
+    box-shadow: 0 0 6px rgba(136, 78, 78, 0.5);
+    width: 40px;
+    height: 40px;
+}
+
+.pg-login {
+    width: 500px;
+    margin: 80px auto;
+}
+
+#pg-doc-view {
+    width: 760px;
+    margin: 20px auto
+}
+
+#pg-doc-view .title {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 46px;
+    background: #e4f0e4;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#pg-doc-view .title a {
+    margin-top: 8px;
+}
+
+#pg-doc-view .info{
+    line-height: 30px;
+    border: 1px dashed #ccc;
+    margin-bottom: 20px;
+    color:#888;
+}
+
+#pg-doc-view .updator{
+    margin-left: 30px;
+}
+
+.pg-doc {
+    width: 800px;
+    margin: 20px auto;
+}
+
+.pg-doc .input-title {
+    width: 730px;
+}
+
+#topbt {
+    margin-bottom: 10px;
+}
+
+.pg-doc textarea {
+    width: 98%;
+    height: 300px;
+}
+
+#sidebar {
+    position: fixed;
+
+}
+
+.put-top {
+    background: #CCC;
+    padding: 1px 2px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+    color: #FFF;
+}
+
+.footer{
+    width: 800px;
+    font-size: 12px;
+    margin: 0 auto;
+    text-align: center;
+    color: gray;
+}

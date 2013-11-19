@@ -1,0 +1,48 @@
+<%- include ../header %>
+<!--<div class="span3 bs-docs-sidebar" id="sidebar">
+  <ul class="nav nav-list bs-docs-sidenav affix">
+    <li class=""><a href="#0"><i class="icon-chevron-right"></i> 排版</a></li>
+    <li class=""><a href="#1"><i class="icon-chevron-right"></i> 代码</a></li>
+    <li class=""><a href="#2"><i class="icon-chevron-right"></i> 表格</a></li>
+    <li class=""><a href="#3"><i class="icon-chevron-right"></i> 表格</a></li>
+  </ul>
+</div>-->
+
+
+<div id="pg-doc-view" class="page-panel">
+  <% if(locals.error){ %>
+  <div class="alert alert-error">
+    <a class="close" data-dismiss="alert" href="#">&times;</a>
+    <strong><%= error %></strong>
+  </div>
+  <% } %>
+  <section id="doc-wrap">
+    <div class="title clearfix"><div class="fl"><%= title %></div><a class="fr btn btn-success" href="/doc/<%= id %>/edit">Edit</a></div>
+    <div class="info clearfix">
+      <span class="creator fl">Created by <span style="color:green"><%= creator.name %></span> <%- formatDate(create_date,true)%></span>
+      <% if(updator){ %>
+      <span class="updator fl">Updated by <span style="color:green"><%= updator.name %></span> <%- formatDate(update_date,true)%></span>
+      <% } %>
+
+      <% if(locals.user && (locals.user.email === creator.email)){ %>
+      <a class="fr" href="/doc/<%= id %>/delete">Delete</a>
+      <% } %>
+    </div>
+    <%- markdown(content) %>
+
+
+  </section>
+
+</div>
+
+
+<script>
+  $("#doc-wrap h1").each(function(i){
+    $(this).attr("id",i);
+  })
+  setTimeout(function(){
+    $('#sidebar').scrollspy()
+  },1000)
+
+</script>
+<%- include ../footer %>

@@ -1,0 +1,20 @@
+{
+  "author":"bobby169",
+  "name": "markdown-doc",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "url": "https://github.com/bobby169/Markdown-doc.git"
+  },
+  "dependencies": {
+    "express": "3.3.8",
+    "ejs": "0.8.4",
+    "mongoose":"3.8.0",
+    "connect-mongo": "0.3.3",
+    "connect-flash": "0.1.1",
+    "marked":"0.2.9"
+  }
+}

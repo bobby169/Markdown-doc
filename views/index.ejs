@@ -1,0 +1,23 @@
+<%- include header %>
+<div class="panel page-panel" id="pg-index">
+  <div class="top">
+
+  </div>
+  <div class="list">
+    <ul>
+      <% if(!docs.length){ %>
+        <li>No Documents</li>
+      <% } %>
+      <% docs.forEach(function (doc, index) { %>
+      <li>
+        <div class="user-avatar"><img src="<%= doc._creator.avatar%>" title="<%= doc._creator.name %>"/></div>
+        <div class="title"><% if(doc.top){ %><span class="put-top">Top</span><% } %><a href="/doc/<%= doc.id %>"><%= doc.title %></a></div>
+        <div class="date"> <%- formatDate(doc.create_date) %></div>
+      </li>
+      <% }) %>
+    </ul>
+    <%- include paging %>
+  </div>
+</div>
+<%- include footer %>
+

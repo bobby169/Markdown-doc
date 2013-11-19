@@ -1,0 +1,53 @@
+<div class='pagination' current_page='<%= curPage %>'>
+  <ul>
+    <% var base_url = '/?p='; %>
+    <% if (curPage == 1) { %>
+    <li class='disabled'><a>«</a></li>
+    <% } else { %>
+    <li><a href="<%= base_url %>1">«</a></li>
+    <% } %>
+
+    <%
+    var page_start = curPage - 2 > 0 ? curPage - 2 : 1;
+    var page_end = page_start + 4 >= totalPage ? totalPage : page_start + 4;
+    %>
+
+    <% if (page_start > 1) { %>
+    <li><a>...</a></li>
+    <% } %>
+
+    <% for(var i = page_start; i <= page_end; i++) { %>
+    <% if (i === curPage) { %>
+    <li class='disabled'><a><%= i %></a></li>
+    <% } else { %>
+    <li><a href='<%= base_url + i %>'><%= i %></a></li>
+    <% } %>
+    <% } %>
+
+    <% if (page_end < totalPage ) { %>
+    <li><a>...</a></li>
+    <% } %>
+
+    <% if (curPage == totalPage) { %>
+    <li class='disabled'><a>»</a></li>
+    <% } else { %>
+    <li><a href='<%= base_url + totalPage %>'>»</a></li>
+    <% } %>
+  </ul>
+</div>
+<script>
+ $(document).ready(function () {
+    var $nav = $('.pagination');
+    var current_page = $nav.attr('current_page');
+    if (current_page) {
+      $nav.find('li').each(function(){
+        var $li = $(this);
+        var $a = $li.find('a');
+        if($a.html() == current_page){
+          $li.addClass('active');
+          $a.removeAttr('href');
+        }
+      });
+    }
+  });
+</script>

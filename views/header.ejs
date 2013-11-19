@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title>Markdown Doc</title>
+  <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/docs.css">
+  <!--<link rel="stylesheet" href="/libs/code-prettify/prettify.css">-->
+  <script src="/libs/jquery/jquery.js"></script>
+  <script src="/libs/bootstrap/js/bootstrap.js"></script>
+  <script src="/libs/code-prettify/prettify.js"></script>
+  <script>
+    $(function () {
+      prettyPrint();
+    })
+
+  </script>
+</head>
+<body>
+<header class="header clearfix">
+  <div class="container">
+    <a href="/" class="logo">Renrendai Doc</a>
+
+    <div class="header-actions">
+      <% if (locals.user) { %>
+      <a class="btn btn-success" href="/doc/create">Post</a>
+      <a class="btn signout" href="/signout">Hi <span style="color: green;"><%= user.name %></span> logout</a>
+      <% } else { %>
+      <a class="btn btn-success signup" href="/signup">Sign up</a>
+      <a class="btn signin" href="/signin">Sign in</a>
+      <% } %>
+    </div>
+    <nav>
+      <ul class="top-nav">
+        <li><a href="/">Index</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+    <form action="/" method="GET">
+      <input type="text" name="q" placeholder="Search" class="search"/>
+    </form>
+  </div>
+
+
+</header>
+

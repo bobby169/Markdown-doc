@@ -1,0 +1,36 @@
+<%- include ../header %>
+<section class="pg-login page-panel">
+  <h2>Welcome And Register</h2>
+  <form class="form-horizontal" method="post">
+    <% if(locals.error){ %>
+    <div class="alert alert-error">
+      <a class="close" data-dismiss="alert" href="#">&times;</a>
+      <strong><%= error %></strong>
+    </div>
+    <% } %>
+    <div class="control-group">
+      <label class="control-label" for="username">Username</label>
+      <div class="controls">
+        <input type="text" id="username" name="name" placeholder="Username">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="email">Email</label>
+      <div class="controls">
+        <input type="text" id="email" name="email" placeholder="Email">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="password">Password</label>
+      <div class="controls">
+        <input type="password" id="password" name="password" placeholder="Password">
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <button type="submit" class="btn btn-success">Sign up</button>
+      </div>
+    </div>
+  </form>
+</section>
+<%- include ../footer%>
