@@ -28,7 +28,7 @@ exports.signup = function (req, res, next) {
     }
 
     password = md5(password);
-    var avatar = 'http://www.gravatar.com/avatar/' + md5(email.toLowerCase()) + '?size=48';
+    var avatar = 'https://s.gravatar.com/avatar/' + md5(email.toLowerCase()) + '?s=48';
 
     User.newAndSave(name, password, email, avatar, function (err) {
       if (err) {
