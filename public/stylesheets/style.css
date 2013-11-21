@@ -236,3 +236,27 @@ h2 {
     text-align: center;
     color: gray;
 }
+
+.markdown-text table thead{
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.markdown-text table tr{
+    border-top: 1px solid #CCC;
+    background-color: #FFF;
+    margin: 0;
+    padding: 0;
+}
+
+
+.markdown-text table tr th{
+    background: #F8F8F8;
+}
+.markdown-text table tr th,.markdown-text table tr td{
+    border: 1px solid #CCC;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
