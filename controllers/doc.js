@@ -6,22 +6,22 @@ exports.showList = function (req, res, next) {
   var keyword = req.query.q || '';
   var curPage = req.query.p || 1;
   var limit = 20;
-  var skip = (curPage -1 ) * limit;
-  var sort = {top: 'desc',update_date:'desc'};
+  var skip = (curPage - 1 ) * limit;
+  var sort = {top: 'desc', update_date: 'desc'};
   var query = {};
   if (keyword) {
     keyword = keyword.replace(/[\*\^\&\(\)\[\]\+\?\\]/g, '');
     query.title = new RegExp(keyword, 'i');
   }
 
-  Doc.getCountByQuery({},function(err,count){
-    var toptalPage = count % limit === 0 ?  parseInt(count / limit,10) : parseInt(count / limit,10) +1;
+  Doc.getCountByQuery({}, function (err, count) {
+    var toptalPage = count % limit === 0 ? parseInt(count / limit, 10) : parseInt(count / limit, 10) + 1;
     Doc.getDocsByQuery(query, skip, sort, limit, function (err, docs) {
       if (err) {
         return next(err);
       }
 
-      res.render('index', {docs: docs, curPage:curPage, totalPage:toptalPage});
+      res.render('index', {docs: docs, curPage: curPage, totalPage: toptalPage});
     });
   });
 
@@ -40,8 +40,8 @@ exports.showDetails = function (req, res, next) {
       content: doc.content,
       create_date: doc.create_date,
       update_date: doc.update_date,
-      creator:doc._creator,
-      updator:doc._updator
+      creator: doc._creator,
+      updator: doc._updator
     })
   });
 }
@@ -59,13 +59,11 @@ exports.post = function (req, res, next) {
   } else if (title.length < 2 || title.length > 100) {
     return res.render('doc/create', {error: '标题字数太多或太少'});
   }
-  Doc.newAndSave(title, content, top, req.session.user._id, function (err) {
+  Doc.newAndSave(title, content, top, req.session.user._id, function (err, doc) {
     if (err) {
       return next(err);
     }
-    res.render('doc/create', {
-      error: '发布成功'
-    });
+    res.redirect('doc/' + doc.id);
   })
 }
 
@@ -98,7 +96,7 @@ exports.update = function (req, res, next) {
     doc.title = title;
     doc.top = top;
     doc.content = content;
-    doc._updator =  req.session.user._id;
+    doc._updator = req.session.user._id;
     doc.update_date = new Date();
     doc.save(function (err) {
       return next(err);
@@ -117,7 +115,7 @@ exports.delete = function (req, res, next) {
   }
 
   Doc.getDocById(id, function (err, doc) {
-    if (req.session.user._id != doc._creator) {
+    if (req.session.user._id != doc._creator._id) {
       return res.render('notify', {success: '无权限。'});
     }
     doc.remove(function (err) {
