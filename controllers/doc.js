@@ -116,7 +116,7 @@ exports.delete = function (req, res, next) {
 
   Doc.getDocById(id, function (err, doc) {
     if (req.session.user._id != doc._creator._id) {
-      return res.render('notify', {success: '无权限。'});
+      return res.render('notify', {error: '无权限。'});
     }
     doc.remove(function (err) {
       return next(err);
