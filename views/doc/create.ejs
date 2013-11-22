@@ -1,4 +1,9 @@
 <%- include ../header %>
+<link rel="stylesheet" href="/libs/mirror/lib/codemirror.css">
+<link rel="stylesheet" href="/libs/mirror/addon/display/fullscreen.css">
+<script src="/libs/mirror/lib/codemirror.js"></script>
+<script src="/libs/mirror/mode/markdown/markdown.js"></script>
+<script src="/libs/mirror/addon/display/fullscreen.js"></script>
 <section class="pg-doc page-panel">
   <h2>Doc Post</h2>
   <% if(locals.error){ %>
@@ -17,9 +22,9 @@
       </div>
     </div>
     <div class="control-group">
-      <label class="control-label" for="content">Content</label>
+      <label class="control-label" for="content">Content (Press F11 when cursor is in the editor to toggle full screen editing)</label>
       <div class="controls">
-        <textarea name="content"></textarea>
+        <textarea name="content" id="editor"></textarea>
       </div>
     </div>
     <div class="control-group">
@@ -29,16 +34,5 @@
     </div>
   </form>
 </section>
+<script src="/js/pages/edit.js"></script>
 <%- include ../footer %>
-<script>
-  $("#topbt").click(function(){
-    var b = $(this).hasClass("btn-success");
-    if(!b){
-      $(this).addClass("btn-success");
-      $("#input-top").val(true);
-    }else{
-      $(this).removeClass("btn-success");
-      $("#input-top").val(false);
-    }
-  })
-</script>

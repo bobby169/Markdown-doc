@@ -260,3 +260,7 @@ h2 {
     margin: 0;
     padding: 6px 13px;
 }
+
+.CodeMirror{
+    border: 1px solid #ddd;
+}
