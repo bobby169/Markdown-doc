@@ -10,7 +10,7 @@
     "url": "https://github.com/bobby169/Markdown-doc.git"
   },
   "dependencies": {
-    "express": "3.3.8",
+    "express": "4.17.1",
     "ejs": "0.8.4",
     "mongoose":"3.8.0",
     "connect-mongo": "0.3.3",
